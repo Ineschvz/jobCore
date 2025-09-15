@@ -27,14 +27,14 @@ export default function JobsPage() {
 
     return (
         <main>
-            <h1 style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 16 }}>
+            <h1 className='text-2xl font-bold mb-4'>
                 List of jobs:
             </h1>
-            <ul style={{ display: 'grid', gap: 8 }}>
+            <ul className='space-y-2'>
                 {jobs.map((job) => (
                     <li  key = {job.id}
-                    style={{ padding: 12, border: '1px solid #ccc', borderRadius: 4 }}>
-                        <div style={{ fontWeight: 600 }}> {job.title}</div>
+                    className='p-4 border rounded shadow-sm hover:bg-gray-50 transition'>
+                        <div className=''> {job.title}</div>
                     </li>
                 ))}
             </ul>

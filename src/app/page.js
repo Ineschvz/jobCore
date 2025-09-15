@@ -32,13 +32,13 @@ export default async function Home() {
 
   return (
     <main>
-      <h1 style={{ fontSize: 24, fontWeight: "bold", marginBottom: 20 }}>
+      <h1 className="text-2xl font-bold">
         Hello, this is JobCore! ✅
       </h1>
       <p>Solutions to your concrete job-tracking problems.</p>
-            <p style={{ marginTop: 16 }}>
+            <p className="mt-4">
         API status:{" "}
-        <span style={{ color: apiStatus === "up" ? "green" : "red" }}>
+        <span className="font-mono font-bold">
           {apiStatus}
         </span>
       </p>
