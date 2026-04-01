@@ -1,13 +1,14 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tailwindcss";
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #F8FAFC;
+  --foreground: #334155;
+  --primary: #64748B;
+  --secondary: #94A3B8;
+  --accent: #F97316;
+  --border: #E2E8F0;
+  --success: #22C55E;
+  --error: #EF4444;
 }
 
 html,
@@ -35,8 +36,3 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
