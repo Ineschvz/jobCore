@@ -1,47 +1,26 @@
 // src/app/page.js
-// This is the main page component for the JobCore application
-import { headers } from "next/headers";
+import Link from "next/link";
+import styles from "./page.module.css";
 
-
-export default async function Home() {
-  let apiStatus = "down";
-
-  try { 
-    const hdr = await headers();
-    const host = hdr.get("host"); 
-   //check the host header from the incoming request
-    console.log("this is the host", host)
-  
-    const protocol = process.env.VERCEL ? "https" : "http";
-    //determines the protocol based on the enviorment, if in vercel use https otherwise use http
-
-    const res = await fetch (`${protocol}://${host}/api/ping`)
-    //fetching the api/ping endpoint using the determined protocol and host
-    if (res.ok){
-      const data =await res.json();
-      if(data?.ok){
-        apiStatus = "up";
-        console.log("api is up and running")  
-      }
-    }
-    //if the response is ok and the data contains ok: true, set apiStatus to "up"
-  }
-  catch (error){
-    console.error("Ping Failed:", error)
-  }
-
+export default function Home() {
   return (
-    <main>
-      <h1 className="text-2xl font-bold">
-        Hello, this is JobCore! ✅
-      </h1>
-      <p>Solutions to your concrete job-tracking problems.</p>
-            <p className="mt-4">
-        API status:{" "}
-        <span className="font-mono font-bold">
-          {apiStatus}
-        </span>
-      </p>
-    </main>
+    <div className={styles.page}>
+      <div className={styles.content}>
+        <h1 className={styles.logo}>
+          Job<span className={styles.logoAccent}>Core</span>
+        </h1>
+        <p className={styles.tagline}>Your crew's job tracker.</p>
+        <div className={styles.divider} />
+        <div className={styles.ctas}>
+          <Link href="/login" className={styles.primaryBtn}>
+            Sign In
+          </Link>
+          <Link href="/register" className={styles.secondaryBtn}>
+            Sign Up
+          </Link>
+        </div>
+      </div>
+      <footer className={styles.footer}>Chavez Concrete</footer>
+    </div>
   );
-} 
+}
